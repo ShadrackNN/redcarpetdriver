@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "843922528974",
+    "firebase_url": "https://red-car-pet-rider.firebaseio.com",
+    "project_id": "red-car-pet-rider",
+    "storage_bucket": "red-car-pet-rider.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843922528974:android:1e3da63cdecae1dadfce9f",
+        "android_client_info": {
+          "package_name": "com.pylanconsultancy.red_car_petrider"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6Z_1XME8JNt06gKHmD-FEmGfjSyCLK40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843922528974:android:b4390e456a253eb9dfce9f",
+        "android_client_info": {
+          "package_name": "redcarpet.com.br.driver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6Z_1XME8JNt06gKHmD-FEmGfjSyCLK40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
