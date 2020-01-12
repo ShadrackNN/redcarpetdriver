@@ -30,7 +30,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
@@ -110,6 +109,11 @@ public class DriverTracking extends AppCompatActivity implements OnMapReadyCallb
             riderID = getIntent().getStringExtra("riderID");
             riderToken=getIntent().getStringExtra("token");
         }
+
+        // Drawing circle on the map
+        drawCircle(new LatLng(riderLat, riderLng));
+
+
         database = FirebaseDatabase.getInstance();
         historyDriver = database.getReference(Common.history_driver).child(Common.userID);
         historyRider = database.getReference(Common.history_rider).child(riderID);
@@ -147,6 +151,31 @@ public class DriverTracking extends AppCompatActivity implements OnMapReadyCallb
             }
         });
         getRiderData();
+    }
+
+    private void drawCircle(LatLng point){
+
+        // Instantiating CircleOptions to draw a circle around the marker
+        CircleOptions circleOptions = new CircleOptions();
+
+        // Specifying the center of the circle
+        circleOptions.center(point);
+
+        // Radius of the circle
+        circleOptions.radius(1000);
+
+        // Border color of the circle
+        circleOptions.strokeColor(Color.BLACK);
+
+        // Fill color of the circle
+        circleOptions.fillColor(0x30ff0000);
+
+        // Border width of the circle
+        circleOptions.strokeWidth(2);
+
+        // Adding the circle to the GoogleMap
+        mMap.addCircle(circleOptions);
+
     }
 
     private void getRiderData() {
@@ -258,8 +287,8 @@ public class DriverTracking extends AppCompatActivity implements OnMapReadyCallb
         //add rider location
         riderMarker=mMap.addCircle(new CircleOptions()
                 .center(new LatLng(riderLat, riderLng))
-                .radius(50)
-                .strokeColor(Color.BLUE)
+                .radius(3000)
+                .strokeColor(Color.RED)
                 .fillColor(0x220000FF)
                 .strokeWidth(5f));
 
@@ -502,7 +531,7 @@ public class DriverTracking extends AppCompatActivity implements OnMapReadyCallb
         protected void onPostExecute(List<List<HashMap<String, String>>> lists) {
             mDialog.dismiss();
 
-            ArrayList points = null;
+            ArrayList points;
             PolylineOptions polylineOptions = null;
 
             for (int i = 0; i < lists.size(); i++) {

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="redcarpet.com.br.driver">
 
     <!--
@@ -28,13 +27,7 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name="redcarpet.com.br.driver.Activities.Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -70,6 +63,32 @@
             android:name="redcarpet.com.br.driver.Activities.DriverHome"
             android:label="@string/title_activity_drawer_home"
             android:theme="@style/AppTheme" />
+
+        <activity android:name="redcarpet.com.br.driver.Activities.Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter android:label="@string/filter_view_http_redcarpetcabs">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "https://redcarpetcabs.com/” -->
+                <data android:scheme="http"
+                    android:host="https://redcarpetcabs.com/"
+                    android:pathPrefix="/redcarpet" />
+                <!-- note that the leading "/" is required for pathPrefix-->
+            </intent-filter>
+            <intent-filter android:label="@string/filter_view_redcarpetcabs">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "redcarpet://redcarpetcabs” -->
+                <data android:scheme="redcarpetcabs"
+                    android:host="redcarpetcabs" />
+            </intent-filter>
+        </activity>
+
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

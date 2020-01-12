@@ -6,6 +6,8 @@
     <string name="tv_login_title">RED-CAR-PET</string>
     <string name="tv_login_subtitle">DRIVER</string>
     <string name="login">LOG IN</string>
+    <string name="filter_view_redcarpetcabs">redcarpet</string>
+    <string name="filter_view_http_redcarpetcabs">redcarpetCabs</string>
     <string name="signin">SIGN IN</string>
     <string name="btn_accept">ACCEPT</string>
     <string name="btn_decline">DECLINE</string>
